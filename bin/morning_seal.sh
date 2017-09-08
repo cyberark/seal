@@ -1,18 +1,9 @@
 #!/bin/bash
 
-teams=(
-  benchmarking
-  content-tools
-  navigation
-  taxonomy
-  email
-  content-api
-  search-team
-  govuk-infrastructure
-  servicemanual
-  publishing-frontend
-)
+cd "$(git rev-parse --show-toplevel)"
 
-for team in ${teams[*]}; do
-  ./bin/seal.rb $team
-done
+docker build -t seal .
+
+summon --provider conjur \
+       -f config/secrets.yml \
+       docker run --rm --env-file @SUMMONENVFILE seal

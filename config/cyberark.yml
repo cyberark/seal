@@ -1,0 +1,20 @@
+# Please insert new items alphabetically.
+---
+conjur:
+  members: []
+  #  - "@cyberark/developers" # does it work to use groups? or do you have to list individual members?
+
+  channel: "#robot-test"
+
+  exclude_titles:
+    - "[DO NOT MERGE]"
+    - DO NOT MERGE
+    - WIP
+
+  quotes:
+    - Does your story have an estimate?
+    - Can you include automated Cucumber tests?
+    - Write a quick blog post about what you are doing!
+    - Update the knowledge base, people want to know about your work!
+    - Maybe post a screenshot or an animated GIF of your work?
+    - "Be considerate to remote workers, bring your conversations online when appropriate. :slightly_smiling_face:"

@@ -4,7 +4,7 @@ conjur:
   members: []
   #  - "@cyberark/developers" # does it work to use groups? or do you have to list individual members?
 
-  channel: "#robot-test"
+  channel: "#development"
 
   exclude_titles:
     - "[DO NOT MERGE]"

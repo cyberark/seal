@@ -10,9 +10,6 @@ pipeline {
 
     stages {
         stage('Run Seal bot') {
-            when {
-                branch 'master'
-            }
             steps {
                 sh './bin/morning_seal.sh'
             }

@@ -2,8 +2,7 @@
 
 pipeline {
     agent { label 'executor-v2'}
-    // triggers { cron('0 14 * * 1-5') }
-    triggers { cron('* * * * *') }
+    triggers { cron('0 14 * * 1-5') }
     options {
         timestamps()
         overrideIndexTriggers(false)

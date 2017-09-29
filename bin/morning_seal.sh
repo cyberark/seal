@@ -6,5 +6,6 @@ summon --provider conjur \
        docker run \
        --rm \
        -e 'SEAL_ORGANISATION=cyberark' \
+       -e 'SLACK_CHANNEL="#robot-test"' \
        --env-file @SUMMONENVFILE \
-       seal
+       registry.tld/cyberark/seal:latest

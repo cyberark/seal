@@ -6,20 +6,25 @@ pipeline {
     options { timestamps() }
 
     stages {
-        stage('Build Seal container image') {
-            steps {
-                sh './bin/build.sh'
-            }
+        stage('DEBUG env') {
+          steps {
+            sh 'printenv'
+          }
         }
-
-        stage('Run Seal bot') {
-            when {
-                branch 'master'
-            }
-            steps {
-                sh './bin/morning_seal.sh'
-            }
-        }
+        // stage('Build Seal container image') {
+        //     steps {
+        //         sh './bin/build.sh'
+        //     }
+        // }
+        //
+        // stage('Run Seal bot') {
+        //     when {
+        //         branch 'master'
+        //     }
+        //     steps {
+        //         sh './bin/morning_seal.sh'
+        //     }
+        // }
     }
 
     post {

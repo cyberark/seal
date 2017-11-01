@@ -1,5 +1,5 @@
 ---
-conjur:
+conjurinc:
   members: []
   channel: "#robot-test"
 

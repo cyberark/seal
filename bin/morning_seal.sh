@@ -15,4 +15,4 @@ cd "$(git rev-parse --show-toplevel)"
 
 # run seal for two orgs
 run_seal_for cyberark
-run_seal_for conjur
+run_seal_for conjurinc

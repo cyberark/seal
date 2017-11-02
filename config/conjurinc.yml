@@ -1,7 +1,7 @@
 ---
 conjurinc:
   members: []
-  channel: "#robot-test"
+  channel: "#development"
 
   exclude_titles:
     - "[DO NOT MERGE]"

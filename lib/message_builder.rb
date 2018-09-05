@@ -58,7 +58,7 @@ class MessageBuilder
 
   def list_pull_requests
     message = @content.keys.each_with_index.map { |title, n| present(title, n + 1) }
-    "Hello team! \n\n Here are the pull requests that need to be reviewed today:\n\n#{message.join}\nMerry reviewing!"
+    #"Hello team! \n\n Here are the pull requests that need to be reviewed today:\n\n#{message.join}\nMerry reviewing!"
   end
 
   def no_pull_requests

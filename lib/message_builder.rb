@@ -2,8 +2,9 @@ class MessageBuilder
 
   attr_accessor :pull_requests, :report, :mood, :poster_mood
 
-  def initialize(content, mode=nil)
+  def initialize(content, team, mode=nil)
     @content = content
+    @team = team
     @mode = mode
   end
 
@@ -19,12 +20,9 @@ class MessageBuilder
     if !old_pull_requests.empty?
       @poster_mood = "angry"
       bark_about_old_pull_requests
-    elsif @content.empty?
+    else
       @poster_mood = "approval"
       no_pull_requests
-    else
-      @poster_mood = "informative"
-      list_pull_requests
     end
   end
 
@@ -52,17 +50,17 @@ class MessageBuilder
     recent_pull_requests = @content.reject { |_title, pr| rotten?(pr) }
     list_recent_pull_requests = recent_pull_requests.keys.each_with_index.map { |title, n| present(title, n + 1) }
     #informative_bark = "There are also these pull requests that need to be reviewed today:\n\n#{list_recent_pull_requests.join} " if !recent_pull_requests.empty?
-    "AAAAAAARGH! #{these(old_pull_requests.length)} #{pr_plural(old_pull_requests.length)} not been updated in over 2 days.\n\n#{angry_bark.join}\nI will overlook pull requests with \"WIP\" or \"DO NOT MERGE\" in the title. Do the right thing so I don't have to shout again next time!"
+    "AAAAAAARGH! #{these(old_pull_requests.length)} #{pr_plural(old_pull_requests.length)} not been updated in *#{@team}* for over 2 days.\n\n#{angry_bark.join}\nI will overlook pull requests with \"WIP\" or \"DO NOT MERGE\" in the title. Do the right thing so I don't have to shout again next time!"
     #\n\n#{informative_bark}"
   end
 
-  def list_pull_requests
-    message = @content.keys.each_with_index.map { |title, n| present(title, n + 1) }
-    #"Hello team! \n\n Here are the pull requests that need to be reviewed today:\n\n#{message.join}\nMerry reviewing!"
-  end
+  #def list_pull_requests
+  #  message = @content.keys.each_with_index.map { |title, n| present(title, n + 1) }
+  #  "Hello team! \n\n Here are the pull requests that need to be reviewed today:\n\n#{message.join}\nMerry reviewing!"
+  #end
 
   def no_pull_requests
-    "Aloha team! It's a beautiful day! :happyseal: :happyseal: :happyseal:\n\nNo pull requests to review today! :rainbow: :sunny: :metal: :tada:"
+    "Aloha team! It's a beautiful day! :happyseal: :happyseal: :happyseal:\n\nNo old pull requests in *#{@team}* today! :rainbow: :sunny: :metal: :tada:"
   end
 
   def bark_about_quotes

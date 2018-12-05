@@ -7,3 +7,9 @@ cyberark:
     - "[DO NOT MERGE]"
     - DO NOT MERGE
     - WIP
+
+  exclude_repos:
+    - epv-api-scripts
+    - urbancode-conjur-aim
+    - cyberark-aws-auto-onboarding
+    - shimit

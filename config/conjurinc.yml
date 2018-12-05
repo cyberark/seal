@@ -7,3 +7,6 @@ conjurinc:
     - "[DO NOT MERGE]"
     - DO NOT MERGE
     - WIP
+
+  exclude_repos:
+    - playroom

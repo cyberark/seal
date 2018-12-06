@@ -13,3 +13,4 @@ cyberark:
     - urbancode-conjur-aim
     - cyberark-aws-auto-onboarding
     - shimit
+    - pas-on-cloud
